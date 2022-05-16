@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WPFExample.UI;
-using WPFExample.Views;
+using WPFExample.Models;
 
-namespace WPFExample;
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace WPFExample.Views;
+
+public partial class AuthorView : UserControl
 {
-  public MainWindow()
+  public AuthorView() => InitializeComponent();
+  public AuthorView(IBook book) : this()
   {
-    InitializeComponent();
+    DataContext = book;
   }
 
-  private void Button_Click(Object sender, RoutedEventArgs e)
-  {
-    new AuthorView().ShowWindow();
-
-  }
 }

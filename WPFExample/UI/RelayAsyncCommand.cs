@@ -15,16 +15,7 @@ namespace WPFExample.UI
     public RelayAsyncCommand(Func<Task> execute) : this(execute, null) { }
     public RelayAsyncCommand(Func<Task> execute, Func<bool>? canExecute) => (_canExecute, _execute) = (canExecute, execute);
 
-    public async void Execute(Object? parameter)
-    {
-      await Task.Run(_execute);
-    }
-
-    public async Task ExecuteAsync(Object? parameter)
-    {
-      await _execute();
-    }
-
+    public async void Execute(Object? parameter) => await _execute();
     public Boolean CanExecute(Object? parameter) => _canExecute?.Invoke() ?? true;
 
     public event EventHandler? CanExecuteChanged

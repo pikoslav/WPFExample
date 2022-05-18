@@ -33,4 +33,11 @@ public partial class AuthorView : UserControl
 
   public ICommand BarCommand { get; set; }
 
+  private void Button_Click(Object sender, RoutedEventArgs e)
+  {
+    var ripple = new RippleEffect();
+    //ripple.Center = new Point(0.5, 0.25);
+    ripple.Amplitude = 0.1;
+    myGrid.Effect = ripple;
+  }
 }

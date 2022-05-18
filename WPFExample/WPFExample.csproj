@@ -8,6 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="BandedSwirl.ps" />
+    <None Remove="BandedSwirl_PS3.cod" />
+    <None Remove="BandedSwirl_PS3.fx" />
+    <None Remove="Ripple.fx" />
+    <None Remove="Ripple.ps" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="BandedSwirl_PS3.cod" />
+    <Resource Include="BandedSwirl_PS3.fx" />
+    <Resource Include="BandedSwirl.ps" />
+    <Resource Include="Ripple.fx" />
+    <Resource Include="Ripple.ps" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Bogus" Version="34.0.2" />
   </ItemGroup>
 

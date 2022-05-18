@@ -5,7 +5,7 @@ using Xunit;
 
 using WPFExample.Models;
 using WPFExample.Views;
-using WPFExample.ModelViews;
+using WPFExample.ViewModels;
 
 namespace WPFExampleTests;
 public class UnitTest1
@@ -20,7 +20,7 @@ public class UnitTest1
     mock.SetupGet(x => x.LastName).Returns("Stanič");
     // mock.VerifyGet(x => x.);
 
-    var mview = new AuthorModelView(mock.Object);
+    var mview = new AuthorViewModel(mock.Object);
     Assert.Equal("Dejan Stanič", mview.FullName);
 
   }

@@ -5,10 +5,10 @@ namespace WPFExample.Models;
 
 public interface IAuthor
 {
-  String Code { get; set; }
-
-  String FirstName { get; set; }
-  String LastName { get; set; }
+  String? FirstName { get; set; }
+  String? LastName { get; set; }
+  
+  String? ImageName { get; set; }
 
   IList<Book> Books { get; }
 

@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WPFExample.ModelViews;
+namespace WPFExample.ViewModels;
 
-public abstract class ModelView : INotifyPropertyChanged
+public abstract class ViewModel : INotifyPropertyChanged
 {
   public event PropertyChangedEventHandler? PropertyChanged;
   public void RaisePropertyChanged([CallerMemberName] String? propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

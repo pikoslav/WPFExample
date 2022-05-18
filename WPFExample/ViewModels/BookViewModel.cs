@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 using WPFExample.Models;
 
-namespace WPFExample.ModelViews;
+namespace WPFExample.ViewModels;
 
-public class BookModelView : ModelView
+public class BookViewModel : ViewModel
 {
   private readonly IBook _book;
 
-  public BookModelView(IBook book)
+  public BookViewModel(IBook book)
   {
     _book = book;
   }

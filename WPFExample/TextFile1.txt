@@ -1,0 +1,13 @@
+﻿http://reedcopsey.com/talks/from-windows-forms-to-wpf-with-mvvm/
+https://wpf-tutorial.com/
+
+
+https://docs.microsoft.com/en-us/archive/msdn-magazine/2014/april/async-programming-patterns-for-asynchronous-mvvm-applications-commands
+https://stackoverflow.com/questions/27089263/how-to-run-and-interact-with-an-async-task-from-a-wpf-gui
+https://wpf-tutorial.com/
+
+https://docs.microsoft.com/en-us/dotnet/desktop/wpf/properties/attached-properties-overview?view=netdesktop-6.0
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.selector.issynchronizedwithcurrentitem?view=windowsdesktop-6.0
+
+https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-binding-validation?view=netframeworkdesktop-4.8
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.binding.validatesonexceptions?view=windowsdesktop-6.0

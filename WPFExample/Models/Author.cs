@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace WPFExample.Models;
 public class Author : IAuthor
 {
-  public String Code { get; set; }
+  public String? FirstName { get; set; }
+  public String? LastName { get; set; }
 
-  public String FirstName { get; set; }
-  public String LastName { get; set; }
+  public String? ImageName { get; set; }
 
   public IList<Book> Books { get; }
 

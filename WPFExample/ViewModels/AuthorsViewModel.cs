@@ -10,58 +10,54 @@ using System.Windows.Threading;
 using WPFExample.Models;
 using WPFExample.UI;
 
-namespace WPFExample.ModelViews;
+namespace WPFExample.ViewModels;
 
-public class AuthorModelView : ModelView
+public class AuthorsViewModel : ViewModel
 {
-  private readonly IAuthor _author;
-
-  public AuthorModelView(IAuthor author)
+  public AuthorsViewModel()
   {
-    _author = author;
+    _authors = Database.GenerateRandomAuthors();
+    _currentAuthor = _authors.FirstOrDefault()!;
 
     FooCommand = new RelayAsyncCommand(Foo);
   }
 
+  private readonly IList<IAuthor> _authors;
+  public IList<IAuthor> Authors => _authors;
 
-  public String Code
+  private IAuthor _currentAuthor;
+  public IAuthor CurrentAuthor
   {
-    get => _author.Code;
+    get => _currentAuthor;
     set
     {
-      _author.Code = value;
-      RaisePropertyChanged();
+      if (_currentAuthor != value)
+      {
+        _currentAuthor = value;
+        RaisePropertyChanged();
+        AuthorViewModel = new AuthorViewModel(_currentAuthor);
+      }
     }
   }
 
-  public String FirstName
+  private AuthorViewModel _authorViewModel;
+  public AuthorViewModel AuthorViewModel
   {
-    get => _author.FirstName;
+    get => _authorViewModel;
     set
     {
-      _author.FirstName = value;
-      RaisePropertyChanged();
-      RaisePropertyChanged(nameof(FullName));
+      if (_authorViewModel != value)
+      {
+        _authorViewModel = value;
+        RaisePropertyChanged();
+      }
     }
   }
 
-  public String LastName
-  {
-    get => _author.LastName;
-    set
-    {
-      _author.LastName = value;
-      RaisePropertyChanged();
-      RaisePropertyChanged(nameof(FullName));
-    }
-  }
 
-  public String FullName
-  {
-    get => String.Concat(FirstName ?? String.Empty, " ", LastName ?? String.Empty).Trim();
-  }
 
-  public IList<Book> Books => _author.Books;
+
+  public IList<Book> Books => _currentAuthor.Books;
 
 
   private Boolean _isUiEnabled = true;
@@ -74,6 +70,7 @@ public class AuthorModelView : ModelView
       RaisePropertyChanged();
     }
   }
+
 
   public ICommand FooCommand { get; set; }
   public async Task Foo()

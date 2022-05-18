@@ -20,12 +20,14 @@ using WPFExample.UI;
 
 namespace WPFExample.Views;
 
-public partial class AuthorView : UserControl
+public partial class AuthorsView : UserControl
 {
-  public AuthorView() => InitializeComponent();
-  public AuthorView(IAuthor author) : this()
+  public AuthorsView()
   {
-    DataContext = new AuthorViewModel(author);
+    InitializeComponent();
+
+    var context = new AuthorsViewModel();
+    DataContext = context;
   }
 
 

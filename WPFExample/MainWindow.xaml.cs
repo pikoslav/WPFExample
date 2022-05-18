@@ -30,12 +30,22 @@ public partial class MainWindow : Window
 
   private void Button_Click(Object sender, RoutedEventArgs e)
   {
-    var author = new Author() { FirstName = "John", LastName = "Tolkien" };
-    new AuthorView(author).ShowWindow();
+    //var author = new Author() { FirstName = "John", LastName = "Tolkien" };
+    //new AuthorView(author).ShowWindow();
+    new AuthorsView().ShowWindow();
 
   }
 
   public ICommand FooCommand;
   public ICommand BarCommand;
+
+
+  public static readonly DependencyProperty IsSpinningProperty = DependencyProperty.Register(nameof(IsSpinning), typeof(Boolean), typeof(MainWindow));
+  public Boolean IsSpinning
+  {
+    get => (Boolean)GetValue(IsSpinningProperty);
+    set => SetValue(IsSpinningProperty, value);
+  }
+
 
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,15 +15,22 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using WPFExample.Models;
+using WPFExample.ModelViews;
+using WPFExample.UI;
 
 namespace WPFExample.Views;
 
 public partial class AuthorView : UserControl
 {
   public AuthorView() => InitializeComponent();
-  public AuthorView(IBook book) : this()
+  public AuthorView(IAuthor author) : this()
   {
-    DataContext = book;
+    DataContext = new AuthorModelView(author);
   }
+
+
+
+
+  public ICommand BarCommand { get; set; }
 
 }

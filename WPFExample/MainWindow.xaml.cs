@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WPFExample.Models;
 using WPFExample.UI;
 using WPFExample.Views;
 
@@ -29,7 +30,12 @@ public partial class MainWindow : Window
 
   private void Button_Click(Object sender, RoutedEventArgs e)
   {
-    new AuthorView().ShowWindow();
+    var author = new Author() { FirstName = "John", LastName = "Tolkien" };
+    new AuthorView(author).ShowWindow();
 
   }
+
+  public ICommand FooCommand;
+  public ICommand BarCommand;
+
 }

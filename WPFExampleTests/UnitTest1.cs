@@ -4,7 +4,8 @@ using Moq;
 using Xunit;
 
 using WPFExample.Models;
-
+using WPFExample.Views;
+using WPFExample.ModelViews;
 
 namespace WPFExampleTests;
 public class UnitTest1
@@ -14,13 +15,13 @@ public class UnitTest1
   {
     const String title = "The Lord Of The Rings";
     
-    var mock = new Mock<IBook>();
+    var mock = new Mock<IAuthor>();
+    mock.SetupGet(x => x.FirstName).Returns("Dejan");
+    mock.SetupGet(x => x.LastName).Returns("Stanič");
+    // mock.VerifyGet(x => x.);
 
-    mock.SetupGet(x => x.Title).Returns(title);
-    Assert.Equal(title, mock.Object.Title);
-
-
-    mock.VerifyGet(x => x.Title);
+    var mview = new AuthorModelView(mock.Object);
+    Assert.Equal("Dejan Stanič", mview.FullName);
 
   }
 }
